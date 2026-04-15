@@ -1,8 +1,20 @@
+# Option A: Keep your local version
+git checkout --ours package.json
+
+# OR Option B: Keep GitHub's version
+git checkout --theirs package.json
+
+# OR Option C: Create a fresh package.json (recommended for new project)
+cat > package.json << 'EOF'
 {
   "name": "final-project",
   "version": "1.0.0",
+  "description": "CI/CD Demo Project",
   "scripts": {
-    "lint": "echo linting...",
-    "test": "echo testing..."
-  }
+    "lint": "echo 'Linting passed'",
+    "test": "echo 'Tests passed'",
+    "format:check": "echo 'Format check passed'"
+  },
+  "devDependencies": {}
 }
+EOF

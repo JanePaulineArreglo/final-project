@@ -1,3 +1,8 @@
+# Create the workflows directory if it doesn't exist
+mkdir -p .github/workflows
+
+# Create a fresh workflow.yml
+cat > .github/workflows/workflow.yml << 'EOF'
 name: CI Pipeline
 
 on:
@@ -16,9 +21,9 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm ci
+        run: npm ci || npm install
       - name: Run linter
-        run: npm run lint || echo "No lint script yet"
+        run: npm run lint || echo "No lint script yet - OK"
 
   test:
     runs-on: ubuntu-latest
@@ -29,6 +34,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm ci
+        run: npm ci || npm install
       - name: Run tests
-        run: npm test || echo "No test script yet"
+        run: npm test || echo "No test script yet - OK"
+EOF
