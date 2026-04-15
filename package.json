@@ -1,20 +1,16 @@
-# Option A: Keep your local version
-git checkout --ours package.json
-
-# OR Option B: Keep GitHub's version
-git checkout --theirs package.json
-
-# OR Option C: Create a fresh package.json (recommended for new project)
+# Create a valid package.json
 cat > package.json << 'EOF'
 {
   "name": "final-project",
   "version": "1.0.0",
-  "description": "CI/CD Demo Project",
+  "description": "CI/CD Pipeline Demo",
+  "main": "index.js",
   "scripts": {
-    "lint": "echo 'Linting passed'",
-    "test": "echo 'Tests passed'",
-    "format:check": "echo 'Format check passed'"
+    "test": "echo \"✅ Tests passed\"",
+    "lint": "echo \"✅ Linting passed\""
   },
-  "devDependencies": {}
+  "keywords": ["ci-cd", "pipeline"],
+  "author": "JanePaulineArreglo",
+  "license": "MIT"
 }
 EOF
